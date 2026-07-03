@@ -124,7 +124,20 @@ const trust = [
   <!-- Nav -->
   <header class="sticky top-0 z-50 border-b border-white/10 bg-navy/90 backdrop-blur">
     <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-      <a href="/" class="text-lg font-bold text-accent">{facts.brand}</a>
+      <a href="/" class="flex items-center gap-2.5 text-lg font-bold text-accent">
+        <svg viewBox="0 0 120 120" class="h-7 w-7" aria-hidden="true">
+          <rect x="4" y="4" width="112" height="112" rx="26" fill="#5aa9ff"></rect>
+          <polyline
+            points="33,40 60,92 87,40"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="14"
+            stroke-linecap="round"
+            stroke-linejoin="round"></polyline>
+          <circle cx="60" cy="24" r="8" fill="#ffffff"></circle>
+        </svg>
+        {facts.brand}
+      </a>
       <nav class="hidden gap-8 text-sm text-mute sm:flex">
         <a href="#how" class="hover:text-white">How it works</a>
         <a href="#use-cases" class="hover:text-white">Use cases</a>
