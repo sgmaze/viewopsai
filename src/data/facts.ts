@@ -7,6 +7,10 @@ export const facts = {
   oneLiner:
     "AI agents that operate your real software the way your team does, on screen, under guardrails you set.",
   trustLine: "Supervised until proven. Autonomous once trusted.",
+  sovereignLine:
+    "Sovereign by default: it runs in your environment, on a model you host. Your data never leaves.",
+  audienceLine:
+    "Built for regulated back offices: insurance, healthcare, financial services, and any team that cannot ship its data to an AI vendor.",
   // TODO(founder): stand up this mailbox (or swap for the address you want public).
   contactEmail: "hello@viewopsai.com",
   videoMinutes: "4-minute",
