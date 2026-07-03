@@ -1,0 +1,306 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { facts } from "../data/facts";
+
+const steps = [
+  {
+    n: "1",
+    name: "Create",
+    still: "/media/stills/create.jpg",
+    alt: "Describing a use case in plain language in the ViewOps AI console",
+    head: "Describe the job in plain language.",
+    body:
+      "You create a use case the way you would brief a new teammate: a few sentences about the goal, the systems, and the rules. The copilot drafts the full working specification. No code, and no integration project.",
+  },
+  {
+    n: "2",
+    name: "Govern",
+    still: "/media/stills/govern.jpg",
+    alt: "The governance editor: mode, approval checkpoints, action allow-list, domain fence",
+    head: "The guardrails are the configuration.",
+    body:
+      "Every use case carries its own governance: an approval checkpoint before anything posts, an explicit allow-list of actions, and a domain fence the agent cannot leave. Guardrails are enforced deterministically, not suggested to the model.",
+  },
+  {
+    n: "3",
+    name: "Run",
+    still: "/media/stills/run.jpg",
+    alt: "A live run drafting a vendor bill in Wave from an invoice in Box",
+    head: "It works your real software, live.",
+    body:
+      "The agent signs in with vaulted credentials it never sees, reads the vendor invoice in Box, and drafts the bill in Wave field by field, matching the total to the penny. No APIs, no connectors: the same screens your team uses today.",
+  },
+  {
+    n: "4",
+    name: "Approve",
+    still: "/media/stills/approve.jpg",
+    alt: "A parked run waiting in the approval queue",
+    head: "It stops by itself. A named human decides.",
+    body:
+      "Before anything consequential, the run parks and asks. A reviewer sees exactly what was prepared and approves it; only that approved action continues. And the hard stop never moves: no payment, no purchase, ever.",
+  },
+  {
+    n: "5",
+    name: "Promote",
+    still: "/media/stills/autonomous.jpg",
+    alt: "An autonomous run creating a vendor record with zero human touches",
+    head: "Proven use cases graduate to autonomous.",
+    body:
+      "Supervised is where a use case starts, not where it ends. When one has earned trust, you promote it: it runs end to end with zero human touches, still inside its fence, still on the audit chain. That is the trust dial.",
+  },
+  {
+    n: "6",
+    name: "Prove",
+    still: "/media/stills/audit.jpg",
+    alt: "The tamper-evident audit chain verified on demand",
+    head: "Evidence for every step.",
+    body:
+      "Every run keeps its outcome, the structured record, and step-by-step visual evidence of what the agent actually did. Every action lands in a tamper-evident audit chain, attributed to a named human or agent identity, verified on demand.",
+  },
+];
+
+const useCases = [
+  {
+    name: "Vendor bill from an invoice",
+    route: "Box to Wave · supervised",
+    body: "Reads a vendor invoice and drafts the bill, line by line. Parks for approval before anything posts.",
+  },
+  {
+    name: "Customer invoice from an SOW",
+    route: "Box to Wave · supervised",
+    body: "Prepares a customer invoice from a statement of work. Parks before sending.",
+  },
+  {
+    name: "Vendor onboarding from a W-9",
+    route: "Box to Wave · autonomous",
+    body: "Turns a W-9 into a finished vendor record with zero human touches. Promoted after proving itself supervised.",
+  },
+  {
+    name: "Lead enrichment from a brief",
+    route: "Box to Zoho CRM · autonomous",
+    body: "Reads a prospect brief and creates the enriched CRM lead, end to end.",
+  },
+  {
+    name: "Order to cash",
+    route: "Box + Zoho + Wave · supervised",
+    body: "One governed run across three systems, from signed order to draft invoice, with a mandatory human sign-off.",
+  },
+];
+
+const trust = [
+  {
+    head: "Sovereign by default",
+    body:
+      "Everything needed to run an agent runs inside your trust boundary: your VPC or your metal, a self-hosted open model, your data never leaving. No model traffic crosses the boundary unless you explicitly permit it per use case.",
+  },
+  {
+    head: "Credentials the model never sees",
+    body:
+      "Logins live in an encrypted vault and are injected as masked placeholders at run time. Credential values never reach the model context, the logs, or the artifacts.",
+  },
+  {
+    head: "Your identity provider",
+    body:
+      "Console access is delegated to your own IdP with enforced role-based access. Approvals are authenticated, so the platform can prove who approved what.",
+  },
+  {
+    head: "Deterministic guardrails",
+    body:
+      "The approval gate, the action allow-list, the domain fence, and the payment hard stop are enforced in code, outside the model. A clever prompt cannot talk its way past them.",
+  },
+  {
+    head: "Compliance-ready",
+    body: facts.compliance,
+  },
+  {
+    head: "Open foundations",
+    body:
+      "No closed-source runtime dependencies and no per-seat fees. The stack deploys on your Kubernetes, on the clouds you already run.",
+  },
+];
+---
+
+<Layout>
+  <!-- Nav -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-navy/90 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <a href="/" class="text-lg font-bold text-accent">{facts.brand}</a>
+      <nav class="hidden gap-8 text-sm text-mute sm:flex">
+        <a href="#how" class="hover:text-white">How it works</a>
+        <a href="#use-cases" class="hover:text-white">Use cases</a>
+        <a href="#trust" class="hover:text-white">Trust</a>
+        <a href="#partner" class="hover:text-white">Design partners</a>
+      </nav>
+      <a
+        href="#partner"
+        class="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-navy-deep hover:bg-white"
+        >Become a design partner</a
+      >
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="mx-auto max-w-6xl px-6 pb-16 pt-20 text-center">
+    <h1 class="mx-auto max-w-4xl text-4xl font-bold leading-tight sm:text-6xl">
+      The governed AI workforce for
+      <span class="text-accent">back-office operations</span>
+    </h1>
+    <p class="mx-auto mt-6 max-w-2xl text-lg text-mute">
+      {facts.oneLiner}
+    </p>
+    <p class="mt-4 text-lg font-semibold text-teal">{facts.trustLine}</p>
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+      <a
+        href="#video"
+        class="rounded-lg bg-accent px-6 py-3 font-semibold text-navy-deep hover:bg-white"
+        >Watch the {facts.videoMinutes} demo</a
+      >
+      <a
+        href="#how"
+        class="rounded-lg border border-white/20 px-6 py-3 font-semibold text-white hover:border-accent hover:text-accent"
+        >See how it works</a
+      >
+    </div>
+
+    <!-- Teaser -->
+    <div class="mx-auto mt-12 max-w-4xl overflow-hidden rounded-xl border border-white/10 shadow-2xl">
+      <video
+        src="/media/teaser.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        controls
+        class="w-full"
+        aria-label="ViewOps AI teaser: a use case is created, runs supervised on live software, is approved by a human, and a promoted use case runs autonomously"
+      ></video>
+    </div>
+    <p class="mx-auto mt-6 max-w-2xl text-sm text-mute">
+      {facts.proofClaims.realFootage}
+    </p>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="border-t border-white/10 bg-navy-deep py-20">
+    <div class="mx-auto max-w-6xl px-6">
+      <h2 class="text-center text-3xl font-bold sm:text-4xl">How it works</h2>
+      <p class="mx-auto mt-4 max-w-2xl text-center text-mute">
+        Six steps from a plain-language description to a measured, audited AI workforce.
+      </p>
+      <div class="mt-14 space-y-16">
+        {
+          steps.map((s, i) => (
+            <div class={`flex flex-col items-center gap-8 lg:flex-row ${i % 2 ? "lg:flex-row-reverse" : ""}`}>
+              <div class="lg:w-1/2">
+                <div class="overflow-hidden rounded-xl border border-white/10 shadow-xl">
+                  <img src={s.still} alt={s.alt} loading="lazy" class="w-full" />
+                </div>
+              </div>
+              <div class="lg:w-1/2">
+                <div class="text-sm font-bold uppercase tracking-widest text-teal">
+                  {s.n} · {s.name}
+                </div>
+                <h3 class="mt-2 text-2xl font-bold">{s.head}</h3>
+                <p class="mt-3 leading-relaxed text-mute">{s.body}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Full video -->
+  <section id="video" class="border-t border-white/10 py-20">
+    <div class="mx-auto max-w-4xl px-6 text-center">
+      <h2 class="text-3xl font-bold sm:text-4xl">Watch it run, end to end</h2>
+      <p class="mx-auto mt-4 max-w-2xl text-mute">
+        The {facts.videoMinutes} product video: a use case created by description, governed, run live
+        on {facts.demoApps}, approved by a named human, promoted to autonomous, and proven on the
+        audit chain.
+      </p>
+      <div class="mt-10 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
+        <video src="/media/product-video.mp4" controls preload="metadata" poster="/media/og.jpg" class="w-full"
+        ></video>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use cases -->
+  <section id="use-cases" class="border-t border-white/10 bg-navy-deep py-20">
+    <div class="mx-auto max-w-6xl px-6">
+      <h2 class="text-center text-3xl font-bold sm:text-4xl">Real work, on real software</h2>
+      <p class="mx-auto mt-4 max-w-2xl text-center text-mute">
+        Five governed flows, run live on {facts.demoApps} with synthetic business data. Each one starts
+        supervised and earns its autonomy.
+      </p>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          useCases.map((u) => (
+            <div class="rounded-xl border border-white/10 bg-panel p-6">
+              <div class="text-xs font-semibold uppercase tracking-wider text-teal">{u.route}</div>
+              <h3 class="mt-2 text-lg font-bold">{u.name}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-mute">{u.body}</p>
+            </div>
+          ))
+        }
+        <div class="flex items-center justify-center rounded-xl border border-dashed border-white/20 p-6 text-center">
+          <p class="text-sm text-mute">
+            Your back office runs on different software? If a person can operate it on screen, an
+            agent can be taught to.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust -->
+  <section id="trust" class="border-t border-white/10 py-20">
+    <div class="mx-auto max-w-6xl px-6">
+      <h2 class="text-center text-3xl font-bold sm:text-4xl">Built for the operations you cannot get wrong</h2>
+      <p class="mx-auto mt-4 max-w-2xl text-center text-mute">
+        Autonomy is only useful if you can adopt it, prove it, and answer for it.
+      </p>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          trust.map((t) => (
+            <div class="rounded-xl border border-white/10 bg-panel p-6">
+              <h3 class="text-lg font-bold text-accent">{t.head}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-mute">{t.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Design partner CTA -->
+  <section id="partner" class="border-t border-white/10 bg-navy-deep py-20">
+    <div class="mx-auto max-w-3xl px-6 text-center">
+      <h2 class="text-3xl font-bold sm:text-4xl">Become a design partner</h2>
+      <p class="mt-6 leading-relaxed text-mute">
+        We are working with a small number of design partners: operations teams who want their
+        highest-volume back-office work done by governed AI agents, inside their own boundary, with
+        evidence for every step. Partners get hands-on deployment, direct influence on the roadmap,
+        and founding-customer terms.
+      </p>
+      <a
+        href={`mailto:${facts.contactEmail}?subject=ViewOps%20AI%20design%20partner`}
+        class="mt-8 inline-block rounded-lg bg-accent px-8 py-4 text-lg font-semibold text-navy-deep hover:bg-white"
+        >Talk to us: {facts.contactEmail}</a
+      >
+      <p class="mt-4 text-sm text-mute">A short note about your back office is enough to start.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 py-10">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-sm text-mute sm:flex-row">
+      <div>
+        <span class="font-bold text-accent">{facts.brand}</span>
+        · governed AI agents, sovereign execution
+      </div>
+      <div>© 2026 {facts.brand} · {facts.domain}</div>
+    </div>
+  </footer>
+</Layout>
