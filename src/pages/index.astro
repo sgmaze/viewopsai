@@ -140,6 +140,7 @@ const trust = [
       </a>
       <nav class="hidden gap-8 text-sm text-mute sm:flex">
         <a href="#how" class="hover:text-white">How it works</a>
+        <a href="#sovereign" class="hover:text-white">Sovereignty</a>
         <a href="#use-cases" class="hover:text-white">Use cases</a>
         <a href="#trust" class="hover:text-white">Trust</a>
         <a href="#partner" class="hover:text-white">Design partners</a>
@@ -162,6 +163,20 @@ const trust = [
       {facts.oneLiner}
     </p>
     <p class="mt-4 text-lg font-semibold text-teal">{facts.trustLine}</p>
+    <div class="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-3">
+      {
+        [
+          "Runs in your VPC or on-prem",
+          "Self-hosted open model",
+          "Your data never leaves",
+          "Your SSO · your audit",
+        ].map((badge) => (
+          <span class="rounded-full border border-accent/40 bg-panel px-4 py-1.5 text-sm font-medium text-accent">
+            {badge}
+          </span>
+        ))
+      }
+    </div>
     <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
       <a
         href="#video"
@@ -190,6 +205,9 @@ const trust = [
     </div>
     <p class="mx-auto mt-6 max-w-2xl text-sm text-mute">
       {facts.proofClaims.realFootage}
+    </p>
+    <p class="mx-auto mt-3 max-w-2xl text-sm font-medium text-good">
+      {facts.audienceLine}
     </p>
   </section>
 
@@ -223,6 +241,50 @@ const trust = [
     </div>
   </section>
 
+  <!-- Sovereignty -->
+  <section id="sovereign" class="border-t border-white/10 py-20">
+    <div class="mx-auto max-w-6xl px-6">
+      <h2 class="text-center text-3xl font-bold sm:text-4xl">
+        Your environment. Your model. <span class="text-accent">Your data.</span>
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-center text-mute">
+        Sovereignty is not a deployment option; it is the default. The four answers your security
+        team will ask for first:
+      </p>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2">
+        <div class="rounded-xl border border-accent/30 bg-panel p-6">
+          <h3 class="text-lg font-bold text-teal">Where does it run?</h3>
+          <p class="mt-2 leading-relaxed text-mute">
+            Inside your trust boundary: your VPC or your own hardware, deployed on your Kubernetes.
+            The agents, the model, the browser, the data, and the evidence all live there.
+          </p>
+        </div>
+        <div class="rounded-xl border border-accent/30 bg-panel p-6">
+          <h3 class="text-lg font-bold text-teal">Which model?</h3>
+          <p class="mt-2 leading-relaxed text-mute">
+            A self-hosted open model, served on your GPUs. No calls to a model vendor, no per-seat
+            fees, and no closed-source runtime in the stack.
+          </p>
+        </div>
+        <div class="rounded-xl border border-accent/30 bg-panel p-6">
+          <h3 class="text-lg font-bold text-teal">What leaves the boundary?</h3>
+          <p class="mt-2 leading-relaxed text-mute">
+            Nothing. Screens, documents, credentials, and model traffic stay inside. Egress is off
+            by default and only ever opened per use case, by you, with the change on the audit
+            chain.
+          </p>
+        </div>
+        <div class="rounded-xl border border-accent/30 bg-panel p-6">
+          <h3 class="text-lg font-bold text-teal">Who controls access?</h3>
+          <p class="mt-2 leading-relaxed text-mute">
+            You do: your identity provider, enforced role-based access, authenticated approvals,
+            and a tamper-evident audit chain you can verify and export.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Full video -->
   <section id="video" class="border-t border-white/10 py-20">
     <div class="mx-auto max-w-4xl px-6 text-center">
@@ -245,7 +307,8 @@ const trust = [
       <h2 class="text-center text-3xl font-bold sm:text-4xl">Real work, on real software</h2>
       <p class="mx-auto mt-4 max-w-2xl text-center text-mute">
         Five governed flows, run live on {facts.demoApps} with synthetic business data. Each one starts
-        supervised and earns its autonomy.
+        supervised and earns its autonomy, and every run is measured: completions, exceptions, and
+        ROI per use case.
       </p>
       <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {
@@ -289,20 +352,44 @@ const trust = [
 
   <!-- Design partner CTA -->
   <section id="partner" class="border-t border-white/10 bg-navy-deep py-20">
-    <div class="mx-auto max-w-3xl px-6 text-center">
+    <div class="mx-auto max-w-5xl px-6 text-center">
       <h2 class="text-3xl font-bold sm:text-4xl">Become a design partner</h2>
-      <p class="mt-6 leading-relaxed text-mute">
-        We are working with a small number of design partners: operations teams who want their
-        highest-volume back-office work done by governed AI agents, inside their own boundary, with
-        evidence for every step. Partners get hands-on deployment, direct influence on the roadmap,
-        and founding-customer terms.
+      <p class="mx-auto mt-6 max-w-3xl leading-relaxed text-mute">
+        We are onboarding a small number of design partners: operations teams in insurance,
+        healthcare, financial services, and other regulated back offices. The exchange is simple:
       </p>
+      <div class="mt-10 grid gap-6 text-left sm:grid-cols-3">
+        <div class="rounded-xl border border-white/10 bg-panel p-6">
+          <div class="text-sm font-bold uppercase tracking-widest text-teal">You bring</div>
+          <p class="mt-2 text-sm leading-relaxed text-mute">
+            One high-volume, rules-driven workflow your team runs on screen today, and the software
+            it runs on.
+          </p>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-panel p-6">
+          <div class="text-sm font-bold uppercase tracking-widest text-teal">We deliver</div>
+          <p class="mt-2 text-sm leading-relaxed text-mute">
+            Hands-on deployment inside your boundary and your first use cases built with you,
+            supervised from day one, measured from the first run.
+          </p>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-panel p-6">
+          <div class="text-sm font-bold uppercase tracking-widest text-teal">You get</div>
+          <p class="mt-2 text-sm leading-relaxed text-mute">
+            Direct influence on the roadmap and founding-customer terms that stay with you as the
+            platform grows.
+          </p>
+        </div>
+      </div>
       <a
         href={`mailto:${facts.contactEmail}?subject=ViewOps%20AI%20design%20partner`}
-        class="mt-8 inline-block rounded-lg bg-accent px-8 py-4 text-lg font-semibold text-navy-deep hover:bg-white"
+        class="mt-10 inline-block rounded-lg bg-accent px-8 py-4 text-lg font-semibold text-navy-deep hover:bg-white"
         >Talk to us: {facts.contactEmail}</a
       >
-      <p class="mt-4 text-sm text-mute">A short note about your back office is enough to start.</p>
+      <p class="mt-4 text-sm text-mute">
+        The first step is a short note: the workflow, the software it runs on, and roughly how many
+        times a month your team does it. That is enough for a first conversation.
+      </p>
     </div>
   </section>
 
