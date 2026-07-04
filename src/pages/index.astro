@@ -62,27 +62,27 @@ const steps = [
 const useCases = [
   {
     name: "Vendor bill from an invoice",
-    route: "Box to Wave · supervised",
+    route: "Documents to Accounting · supervised",
     body: "Reads a vendor invoice and drafts the bill, line by line. Parks for approval before anything posts.",
   },
   {
     name: "Customer invoice from an SOW",
-    route: "Box to Wave · supervised",
+    route: "Documents to Accounting · supervised",
     body: "Prepares a customer invoice from a statement of work. Parks before sending.",
   },
   {
     name: "Vendor onboarding from a W-9",
-    route: "Box to Wave · autonomous",
+    route: "Documents to Accounting · autonomous",
     body: "Turns a W-9 into a finished vendor record with zero human touches. Promoted after proving itself supervised.",
   },
   {
     name: "Lead enrichment from a brief",
-    route: "Box to Zoho CRM · autonomous",
+    route: "Documents to CRM · autonomous",
     body: "Reads a prospect brief and creates the enriched CRM lead, end to end.",
   },
   {
     name: "Order to cash",
-    route: "Box + Zoho + Wave · supervised",
+    route: "Documents + CRM + Accounting · supervised",
     body: "One governed run across three systems, from signed order to draft invoice, with a mandatory human sign-off.",
   },
 ];
@@ -290,9 +290,9 @@ const trust = [
     <div class="mx-auto max-w-4xl px-6 text-center">
       <h2 class="text-3xl font-bold sm:text-4xl">Watch it run, end to end</h2>
       <p class="mx-auto mt-4 max-w-2xl text-mute">
-        The {facts.videoMinutes} product video: a use case created by description, governed, run live
-        on {facts.demoApps}, approved by a named human, promoted to autonomous, and proven on the
-        audit chain.
+        The {facts.videoMinutes} product video: a use case created by description, governed, run
+        live, approved by a named human, promoted to autonomous, and proven on the audit chain.
+        Filmed on {facts.demoApps}, {facts.demoAppsGloss}.
       </p>
       <div class="mt-10 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
         <video src="/media/product-video.mp4" controls preload="metadata" poster="/media/og.jpg" class="w-full"
@@ -306,7 +306,9 @@ const trust = [
     <div class="mx-auto max-w-6xl px-6">
       <h2 class="text-center text-3xl font-bold sm:text-4xl">Real work, on real software</h2>
       <p class="mx-auto mt-4 max-w-2xl text-center text-mute">
-        Five governed flows, run live on {facts.demoApps} with synthetic business data. Each one starts
+        Each of these follows the pattern behind most back-office work: take a document, work the
+        system of record, prove the result. Shown here across document, accounting, and CRM systems,
+        and the same pattern reaches any software your team works on screen. Every flow starts
         supervised and earns its autonomy, and every run is measured: completions, exceptions, and
         ROI per use case.
       </p>
@@ -322,8 +324,8 @@ const trust = [
         }
         <div class="flex items-center justify-center rounded-xl border border-dashed border-white/20 p-6 text-center">
           <p class="text-sm text-mute">
-            Your back office runs on different software? If a person can operate it on screen, an
-            agent can be taught to.
+            Your back office runs on an ERP, HR, claims, or policy admin system instead? If a
+            person can operate it on screen, an agent can be taught to.
           </p>
         </div>
       </div>
