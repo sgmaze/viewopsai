@@ -62,27 +62,27 @@ const steps = [
 const useCases = [
   {
     name: "Vendor bill from an invoice",
-    route: "Box to Wave · supervised",
+    route: "Documents to Accounting · supervised",
     body: "Reads a vendor invoice and drafts the bill, line by line. Parks for approval before anything posts.",
   },
   {
     name: "Customer invoice from an SOW",
-    route: "Box to Wave · supervised",
+    route: "Documents to Accounting · supervised",
     body: "Prepares a customer invoice from a statement of work. Parks before sending.",
   },
   {
     name: "Vendor onboarding from a W-9",
-    route: "Box to Wave · autonomous",
+    route: "Documents to Accounting · autonomous",
     body: "Turns a W-9 into a finished vendor record with zero human touches. Promoted after proving itself supervised.",
   },
   {
     name: "Lead enrichment from a brief",
-    route: "Box to Zoho CRM · autonomous",
+    route: "Documents to CRM · autonomous",
     body: "Reads a prospect brief and creates the enriched CRM lead, end to end.",
   },
   {
     name: "Order to cash",
-    route: "Box + Zoho + Wave · supervised",
+    route: "Documents + CRM + Accounting · supervised",
     body: "One governed run across three systems, from signed order to draft invoice, with a mandatory human sign-off.",
   },
 ];
@@ -306,9 +306,9 @@ const trust = [
     <div class="mx-auto max-w-6xl px-6">
       <h2 class="text-center text-3xl font-bold sm:text-4xl">Real work, on real software</h2>
       <p class="mx-auto mt-4 max-w-2xl text-center text-mute">
-        Five governed flows, run live on {facts.demoApps} with synthetic business data. Each one starts
-        supervised and earns its autonomy, and every run is measured: completions, exceptions, and
-        ROI per use case.
+        Five governed flows, run live with synthetic business data on {facts.demoApps}, {facts.demoAppsGloss}.
+        Each one starts supervised and earns its autonomy, and every run is measured: completions,
+        exceptions, and ROI per use case.
       </p>
       <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {
@@ -322,8 +322,8 @@ const trust = [
         }
         <div class="flex items-center justify-center rounded-xl border border-dashed border-white/20 p-6 text-center">
           <p class="text-sm text-mute">
-            Your back office runs on different software? If a person can operate it on screen, an
-            agent can be taught to.
+            Your back office runs on an ERP, HR, claims, or policy admin system instead? If a
+            person can operate it on screen, an agent can be taught to.
           </p>
         </div>
       </div>

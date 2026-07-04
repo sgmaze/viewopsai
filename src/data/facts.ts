@@ -15,6 +15,8 @@ export const facts = {
   contactEmail: "hello@viewopsai.com",
   videoMinutes: "4-minute",
   demoApps: "Box, Wave, and Zoho CRM",
+  demoAppsGloss:
+    "standing in for the document, accounting, and CRM systems your team already uses",
   proofClaims: {
     realFootage:
       "Everything on this page is real: live software, real runs, synthetic data. Nothing is ever sent or paid without a human, unless you promote the use case yourself.",
