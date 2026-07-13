@@ -57,6 +57,24 @@ const steps = [
     body:
       "Every run keeps its outcome, the structured record, and step-by-step visual evidence of what the agent actually did. Every action lands in a tamper-evident audit chain, attributed to a named human or agent identity, verified on demand.",
   },
+  {
+    n: "7",
+    name: "Connect",
+    still: "/media/stills/connect.jpg",
+    alt: "A governed run calling the payer API directly: one claim auto-filed, one routed to human review",
+    head: "Beyond the browser: APIs, data, and MCP.",
+    body:
+      "Acting on web pages is only one doorway. The agent connects to your APIs, your data, and any system that speaks MCP, under the same fence and allow-list. Two claims, one run: one auto-filed, one routed to review, decided by a policy document your team writes.",
+  },
+  {
+    n: "8",
+    name: "Scale",
+    still: "/media/stills/scale.jpg",
+    alt: "A single autonomous run making 18 governed calls across database, API, MCP, and browser",
+    head: "It starts itself, and stays inside the rails.",
+    body:
+      "Nobody clicks Run. The use case watches the intake feed and sweeps on a schedule. One run, eighteen governed calls across the warehouse, the API, MCP, and a legacy screen, every one fenced, audited, and on the chain.",
+  },
 ];
 
 const useCases = [
@@ -158,8 +176,8 @@ const trust = [
         {facts.brand}
       </a>
       <nav class="hidden gap-8 text-sm text-mute sm:flex">
-        <a href="#how" class="hover:text-white">How it works</a>
         <a href="#doors" class="hover:text-white">Capabilities</a>
+        <a href="#how" class="hover:text-white">How it works</a>
         <a href="#sovereign" class="hover:text-white">Sovereignty</a>
         <a href="#use-cases" class="hover:text-white">Use cases</a>
         <a href="#trust" class="hover:text-white">Trust</a>
@@ -231,36 +249,6 @@ const trust = [
     </p>
   </section>
 
-  <!-- How it works -->
-  <section id="how" class="border-t border-white/10 bg-navy-deep py-20">
-    <div class="mx-auto max-w-6xl px-6">
-      <h2 class="text-center text-3xl font-bold sm:text-4xl">How it works</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-center text-mute">
-        Six steps from a plain-language description to a measured, audited AI workforce.
-      </p>
-      <div class="mt-14 space-y-16">
-        {
-          steps.map((s, i) => (
-            <div class={`flex flex-col items-center gap-8 lg:flex-row ${i % 2 ? "lg:flex-row-reverse" : ""}`}>
-              <div class="lg:w-1/2">
-                <div class="overflow-hidden rounded-xl border border-white/10 shadow-xl">
-                  <img src={s.still} alt={s.alt} loading="lazy" class="w-full" />
-                </div>
-              </div>
-              <div class="lg:w-1/2">
-                <div class="text-sm font-bold uppercase tracking-widest text-teal">
-                  {s.n} · {s.name}
-                </div>
-                <h3 class="mt-2 text-2xl font-bold">{s.head}</h3>
-                <p class="mt-3 leading-relaxed text-mute">{s.body}</p>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
   <!-- Capabilities: every door -->
   <section id="doors" class="border-t border-white/10 py-20">
     <div class="mx-auto max-w-6xl px-6">
@@ -282,33 +270,35 @@ const trust = [
           ))
         }
       </div>
-      <div class="mt-10 grid gap-6 lg:grid-cols-2">
-        <figure>
-          <div class="overflow-hidden rounded-xl border border-white/10 shadow-xl">
-            <img
-              src="/media/stills/connect.jpg"
-              alt="A governed run calling the payer API directly: one claim auto-filed, one routed to human review"
-              loading="lazy"
-              class="w-full"
-            />
-          </div>
-          <figcaption class="mt-3 text-center text-sm text-mute">
-            The same use case, through the API door. Same allow-list, same approval gate.
-          </figcaption>
-        </figure>
-        <figure>
-          <div class="overflow-hidden rounded-xl border border-white/10 shadow-xl">
-            <img
-              src="/media/stills/scale.jpg"
-              alt="A single autonomous run making 18 governed calls across database, API, MCP, and browser"
-              loading="lazy"
-              class="w-full"
-            />
-          </div>
-          <figcaption class="mt-3 text-center text-sm text-mute">
-            One run, four doors, eighteen governed calls, every one on the audit chain.
-          </figcaption>
-        </figure>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="border-t border-white/10 bg-navy-deep py-20">
+    <div class="mx-auto max-w-6xl px-6">
+      <h2 class="text-center text-3xl font-bold sm:text-4xl">How it works</h2>
+      <p class="mx-auto mt-4 max-w-2xl text-center text-mute">
+        Eight steps from a plain-language description to a measured, audited AI workforce.
+      </p>
+      <div class="mt-14 space-y-16">
+        {
+          steps.map((s, i) => (
+            <div class={`flex flex-col items-center gap-8 lg:flex-row ${i % 2 ? "lg:flex-row-reverse" : ""}`}>
+              <div class="lg:w-1/2">
+                <div class="overflow-hidden rounded-xl border border-white/10 shadow-xl">
+                  <img src={s.still} alt={s.alt} loading="lazy" class="w-full" />
+                </div>
+              </div>
+              <div class="lg:w-1/2">
+                <div class="text-sm font-bold uppercase tracking-widest text-teal">
+                  {s.n} · {s.name}
+                </div>
+                <h3 class="mt-2 text-2xl font-bold">{s.head}</h3>
+                <p class="mt-3 leading-relaxed text-mute">{s.body}</p>
+              </div>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
