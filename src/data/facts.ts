@@ -15,6 +15,8 @@ export const facts = {
   contactEmail: "sales@viewopsai.com",
   videoMinutes: "6-minute",
   teaserSeconds: "55-second",
+  // Bump when media files are replaced in place, so cached copies refresh.
+  mediaVersion: "20260712",
   demoApps: "Box, Wave, and a synthetic claims stack (payer API, claims warehouse, MCP service)",
   demoAppsGloss:
     "standing in for the document, accounting, and claims systems your team already uses",
