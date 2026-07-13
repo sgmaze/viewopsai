@@ -1,0 +1,158 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { facts } from "../data/facts";
+import { newsItems } from "../data/news";
+
+const items = [...newsItems].sort((a, b) => b.date.localeCompare(a.date));
+
+const fmt = (iso: string) =>
+  new Date(`${iso}T00:00:00`).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+const title = `News · ${facts.brand}`;
+const description =
+  "Industry leaders are saying what we build for: keep your AI, your data, and your know-how inside your own boundary. A curated reading list on sovereign, in-house AI deployment.";
+---
+
+<Layout title={title} description={description}>
+  <!-- Nav -->
+  <header class="sticky top-0 z-50 border-b border-ink/10 bg-page/90 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <a href="/" class="flex shrink-0 items-center gap-2.5 whitespace-nowrap text-lg font-bold text-accent">
+        <svg viewBox="0 0 120 120" class="h-7 w-7" aria-hidden="true">
+          <rect x="4" y="4" width="112" height="112" rx="26" fill="#5aa9ff"></rect>
+          <polyline
+            points="33,40 60,92 87,40"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="14"
+            stroke-linecap="round"
+            stroke-linejoin="round"></polyline>
+          <circle cx="60" cy="24" r="8" fill="#ffffff"></circle>
+        </svg>
+        {facts.brand}
+      </a>
+      <nav class="hidden items-center gap-6 text-sm text-mute lg:flex">
+        <a href="/#doors" class="whitespace-nowrap hover:text-ink">Capabilities</a>
+        <a href="/#how" class="whitespace-nowrap hover:text-ink">How it works</a>
+        <a href="/#sovereign" class="whitespace-nowrap hover:text-ink">Sovereignty</a>
+        <a href="/#use-cases" class="whitespace-nowrap hover:text-ink">Use cases</a>
+        <a href="/#trust" class="whitespace-nowrap hover:text-ink">Trust</a>
+        <a href="/#partner" class="whitespace-nowrap hover:text-ink">Design partners</a>
+        <a href="/news" class="whitespace-nowrap font-semibold text-ink">News</a>
+      </nav>
+      <a
+        href="/#partner"
+        class="hidden whitespace-nowrap rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent-deep lg:inline-block"
+        >Talk to us</a
+      >
+      <details id="mobile-nav" class="relative lg:hidden">
+        <summary
+          class="flex cursor-pointer list-none items-center rounded-lg border border-ink/15 p-2 text-ink [&::-webkit-details-marker]:hidden"
+          aria-label="Menu"
+        >
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </summary>
+        <nav class="absolute right-0 mt-3 flex w-56 flex-col gap-1 rounded-xl border border-ink/10 bg-page p-3 text-sm shadow-xl">
+          <a href="/#doors" class="rounded-lg px-3 py-2 text-ink hover:bg-band">Capabilities</a>
+          <a href="/#how" class="rounded-lg px-3 py-2 text-ink hover:bg-band">How it works</a>
+          <a href="/#sovereign" class="rounded-lg px-3 py-2 text-ink hover:bg-band">Sovereignty</a>
+          <a href="/#use-cases" class="rounded-lg px-3 py-2 text-ink hover:bg-band">Use cases</a>
+          <a href="/#trust" class="rounded-lg px-3 py-2 text-ink hover:bg-band">Trust</a>
+          <a href="/#partner" class="rounded-lg px-3 py-2 text-ink hover:bg-band">Design partners</a>
+          <a href="/news" class="rounded-lg bg-band px-3 py-2 font-semibold text-ink">News</a>
+          <a href="/#partner" class="mt-1 rounded-lg bg-accent px-3 py-2 text-center font-semibold text-white hover:bg-accent-deep">Talk to us</a>
+        </nav>
+      </details>
+    </div>
+  </header>
+  <script>
+    document.querySelectorAll("#mobile-nav a").forEach((a) =>
+      a.addEventListener("click", () => document.getElementById("mobile-nav")?.removeAttribute("open"))
+    );
+  </script>
+
+  <!-- Intro -->
+  <section class="mx-auto max-w-4xl px-6 pb-4 pt-16 sm:pt-20">
+    <h1 class="text-4xl font-bold leading-tight sm:text-5xl">
+      The case for <span class="text-accent">sovereign AI</span>, in their words
+    </h1>
+    <p class="mt-6 max-w-3xl text-lg leading-relaxed text-mute">
+      The people who run the largest AI and software companies are converging on the same warning:
+      when your team feeds prompts, data, and corrections into someone else's AI, your know-how
+      leaves with them. We collect the notable statements and incidents here, newest first, with a
+      link to every original source.
+    </p>
+    <p class="mt-4 text-lg font-semibold text-teal">{facts.sovereignLine}</p>
+  </section>
+
+  <!-- Items -->
+  <section class="mx-auto max-w-4xl px-6 py-12">
+    <ol class="space-y-6">
+      {
+        items.map((item) => (
+          <li class="rounded-xl border border-ink/10 bg-page p-6 sm:p-8">
+            <div class="flex flex-wrap items-center gap-3 text-sm text-mute">
+              <span class="rounded-full border border-accent/30 bg-accent/10 px-3 py-0.5 font-semibold text-accent">
+                {item.tag}
+              </span>
+              <time datetime={item.date}>{fmt(item.date)}</time>
+              <span aria-hidden="true">·</span>
+              <span>{item.source}</span>
+            </div>
+            <h2 class="mt-3 text-xl font-bold leading-snug text-ink">
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="hover:text-accent">
+                {item.title}
+              </a>
+            </h2>
+            <p class="mt-3 leading-relaxed text-mute">{item.quote}</p>
+            <p class="mt-3 border-l-2 border-accent/40 pl-4 text-sm leading-relaxed text-ink">
+              <span class="font-bold uppercase tracking-wide text-accent">Why it matters</span>
+              <span class="mt-1 block">{item.whyItMatters}</span>
+            </p>
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-4 inline-block text-sm font-semibold text-accent hover:text-accent-deep"
+            >
+              Read at {item.source} &rarr;
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <!-- CTA -->
+  <section class="border-t border-ink/10 bg-band py-16">
+    <div class="mx-auto max-w-4xl px-6 text-center">
+      <h2 class="text-3xl font-bold">Keep your AI inside your boundary</h2>
+      <p class="mx-auto mt-4 max-w-2xl leading-relaxed text-mute">
+        {facts.sovereignLine} If your back office runs workflows you would never ship to an AI
+        vendor, that is exactly what we built for.
+      </p>
+      <a
+        href="/#partner"
+        class="mt-8 inline-block rounded-lg bg-accent px-8 py-4 text-lg font-semibold text-white hover:bg-accent-deep"
+        >Become a design partner</a
+      >
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-ink/10 py-10">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-sm text-mute sm:flex-row">
+      <div>
+        <span class="font-bold text-accent">{facts.brand}</span>
+        · governed AI agents, sovereign execution
+      </div>
+      <div>© 2026 {facts.brand} · {facts.domain}</div>
+    </div>
+  </footer>
+</Layout>
