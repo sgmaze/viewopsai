@@ -262,7 +262,7 @@ const trust = [
       <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {
           doors.map((d) => (
-            <div class="rounded-xl border border-accent/30 bg-panel p-6">
+            <div class="rounded-xl border border-accent/30 bg-accent/10 p-6">
               <h3 class="text-lg font-bold text-teal">{d.head}</h3>
               <p class="mt-2 text-sm leading-relaxed text-mute">{d.body}</p>
             </div>
@@ -313,7 +313,7 @@ const trust = [
         team will ask for first:
       </p>
       <div class="mt-12 grid gap-6 sm:grid-cols-2">
-        <div class="rounded-xl border border-accent/30 bg-panel p-6">
+        <div class="rounded-xl border border-accent/30 bg-accent/10 p-6">
           <h3 class="text-lg font-bold text-teal">Where does it run?</h3>
           <p class="mt-2 leading-relaxed text-mute">
             Inside your trust boundary: your VPC or your own hardware, deployed on your Kubernetes.
@@ -321,14 +321,14 @@ const trust = [
             there.
           </p>
         </div>
-        <div class="rounded-xl border border-accent/30 bg-panel p-6">
+        <div class="rounded-xl border border-accent/30 bg-accent/10 p-6">
           <h3 class="text-lg font-bold text-teal">Which model?</h3>
           <p class="mt-2 leading-relaxed text-mute">
             A self-hosted open model, served on your GPUs. No calls to a model vendor, no per-seat
             fees, and no closed-source runtime in the stack.
           </p>
         </div>
-        <div class="rounded-xl border border-accent/30 bg-panel p-6">
+        <div class="rounded-xl border border-accent/30 bg-accent/10 p-6">
           <h3 class="text-lg font-bold text-teal">What leaves the boundary?</h3>
           <p class="mt-2 leading-relaxed text-mute">
             Nothing. Screens, documents, credentials, and model traffic stay inside. Egress is off
@@ -336,7 +336,7 @@ const trust = [
             chain.
           </p>
         </div>
-        <div class="rounded-xl border border-accent/30 bg-panel p-6">
+        <div class="rounded-xl border border-accent/30 bg-accent/10 p-6">
           <h3 class="text-lg font-bold text-teal">Who controls access?</h3>
           <p class="mt-2 leading-relaxed text-mute">
             You do: your identity provider, enforced role-based access, authenticated approvals,
@@ -378,14 +378,14 @@ const trust = [
       <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {
           useCases.map((u) => (
-            <div class="rounded-xl border border-ink/10 bg-panel p-6">
+            <div class="rounded-xl border border-accent/30 bg-accent/10 p-6">
               <div class="text-xs font-semibold uppercase tracking-wider text-teal">{u.route}</div>
               <h3 class="mt-2 text-lg font-bold">{u.name}</h3>
               <p class="mt-2 text-sm leading-relaxed text-mute">{u.body}</p>
             </div>
           ))
         }
-        <div class="flex items-center justify-center rounded-xl border border-dashed border-ink/20 p-6 text-center">
+        <div class="flex items-center justify-center rounded-xl border border-dashed border-accent/40 bg-accent/10 p-6 text-center">
           <p class="text-sm text-mute">
             Your back office runs on an ERP, HR, claims, or policy admin system instead? If a
             person can operate it on screen, or it exposes an API, an agent can be taught to.
@@ -405,7 +405,7 @@ const trust = [
       <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {
           trust.map((t) => (
-            <div class="rounded-xl border border-ink/10 bg-panel p-6">
+            <div class="rounded-xl border border-accent/30 bg-accent/10 p-6">
               <h3 class="text-lg font-bold text-accent">{t.head}</h3>
               <p class="mt-2 text-sm leading-relaxed text-mute">{t.body}</p>
             </div>
@@ -424,21 +424,21 @@ const trust = [
         healthcare, financial services, and other regulated back offices. The exchange is simple:
       </p>
       <div class="mt-10 grid gap-6 text-left sm:grid-cols-3">
-        <div class="rounded-xl border border-ink/10 bg-panel p-6">
+        <div class="rounded-xl border border-accent/30 bg-accent/10 p-6">
           <div class="text-sm font-bold uppercase tracking-widest text-teal">You bring</div>
           <p class="mt-2 text-sm leading-relaxed text-mute">
             One high-volume, rules-driven workflow your team runs on screen today, and the software
             it runs on.
           </p>
         </div>
-        <div class="rounded-xl border border-ink/10 bg-panel p-6">
+        <div class="rounded-xl border border-accent/30 bg-accent/10 p-6">
           <div class="text-sm font-bold uppercase tracking-widest text-teal">We deliver</div>
           <p class="mt-2 text-sm leading-relaxed text-mute">
             Hands-on deployment inside your boundary and your first use cases built with you,
             supervised from day one, measured from the first run.
           </p>
         </div>
-        <div class="rounded-xl border border-ink/10 bg-panel p-6">
+        <div class="rounded-xl border border-accent/30 bg-accent/10 p-6">
           <div class="text-sm font-bold uppercase tracking-widest text-teal">You get</div>
           <p class="mt-2 text-sm leading-relaxed text-mute">
             Direct influence on the roadmap and founding-customer terms that stay with you as the
