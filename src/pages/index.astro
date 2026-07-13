@@ -161,7 +161,7 @@ const trust = [
   <!-- Nav -->
   <header class="sticky top-0 z-50 border-b border-ink/10 bg-page/90 backdrop-blur">
     <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-      <a href="/" class="flex items-center gap-2.5 text-lg font-bold text-accent">
+      <a href="/" class="flex shrink-0 items-center gap-2.5 whitespace-nowrap text-lg font-bold text-accent">
         <svg viewBox="0 0 120 120" class="h-7 w-7" aria-hidden="true">
           <rect x="4" y="4" width="112" height="112" rx="26" fill="#5aa9ff"></rect>
           <polyline
@@ -175,21 +175,45 @@ const trust = [
         </svg>
         {facts.brand}
       </a>
-      <nav class="hidden gap-8 text-sm text-mute sm:flex">
-        <a href="#doors" class="hover:text-ink">Capabilities</a>
-        <a href="#how" class="hover:text-ink">How it works</a>
-        <a href="#sovereign" class="hover:text-ink">Sovereignty</a>
-        <a href="#use-cases" class="hover:text-ink">Use cases</a>
-        <a href="#trust" class="hover:text-ink">Trust</a>
-        <a href="#partner" class="hover:text-ink">Design partners</a>
+      <nav class="hidden items-center gap-6 text-sm text-mute lg:flex">
+        <a href="#doors" class="whitespace-nowrap hover:text-ink">Capabilities</a>
+        <a href="#how" class="whitespace-nowrap hover:text-ink">How it works</a>
+        <a href="#sovereign" class="whitespace-nowrap hover:text-ink">Sovereignty</a>
+        <a href="#use-cases" class="whitespace-nowrap hover:text-ink">Use cases</a>
+        <a href="#trust" class="whitespace-nowrap hover:text-ink">Trust</a>
+        <a href="#partner" class="whitespace-nowrap hover:text-ink">Design partners</a>
       </nav>
       <a
         href="#partner"
-        class="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-ink"
-        >Become a design partner</a
+        class="hidden whitespace-nowrap rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent-deep lg:inline-block"
+        >Talk to us</a
       >
+      <details id="mobile-nav" class="relative lg:hidden">
+        <summary
+          class="flex cursor-pointer list-none items-center rounded-lg border border-ink/15 p-2 text-ink [&::-webkit-details-marker]:hidden"
+          aria-label="Menu"
+        >
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </summary>
+        <nav class="absolute right-0 mt-3 flex w-56 flex-col gap-1 rounded-xl border border-ink/10 bg-page p-3 text-sm shadow-xl">
+          <a href="#doors" class="rounded-lg px-3 py-2 text-ink hover:bg-band">Capabilities</a>
+          <a href="#how" class="rounded-lg px-3 py-2 text-ink hover:bg-band">How it works</a>
+          <a href="#sovereign" class="rounded-lg px-3 py-2 text-ink hover:bg-band">Sovereignty</a>
+          <a href="#use-cases" class="rounded-lg px-3 py-2 text-ink hover:bg-band">Use cases</a>
+          <a href="#trust" class="rounded-lg px-3 py-2 text-ink hover:bg-band">Trust</a>
+          <a href="#partner" class="rounded-lg px-3 py-2 text-ink hover:bg-band">Design partners</a>
+          <a href="#partner" class="mt-1 rounded-lg bg-accent px-3 py-2 text-center font-semibold text-white hover:bg-accent-deep">Talk to us</a>
+        </nav>
+      </details>
     </div>
   </header>
+  <script>
+    document.querySelectorAll("#mobile-nav a").forEach((a) =>
+      a.addEventListener("click", () => document.getElementById("mobile-nav")?.removeAttribute("open"))
+    );
+  </script>
 
   <!-- Hero -->
   <section class="mx-auto max-w-6xl px-6 pb-16 pt-20 text-center">
@@ -217,7 +241,7 @@ const trust = [
     <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
       <a
         href="#video"
-        class="rounded-lg bg-accent px-6 py-3 font-semibold text-white hover:bg-ink"
+        class="rounded-lg bg-accent px-6 py-3 font-semibold text-white hover:bg-accent-deep"
         >Watch the {facts.videoMinutes} demo</a
       >
       <a
@@ -243,7 +267,7 @@ const trust = [
     <p class="mx-auto mt-6 max-w-2xl text-sm text-mute">
       {facts.proofClaims.realFootage}
     </p>
-    <p class="mx-auto mt-3 max-w-2xl text-sm font-medium text-good">
+    <p class="mx-auto mt-3 max-w-2xl text-sm font-medium text-mute">
       {facts.audienceLine}
     </p>
   </section>
@@ -263,7 +287,7 @@ const trust = [
         {
           doors.map((d) => (
             <div class="rounded-xl border border-accent/30 bg-accent/10 p-6">
-              <h3 class="text-lg font-bold text-teal">{d.head}</h3>
+              <h3 class="text-lg font-bold text-ink">{d.head}</h3>
               <p class="mt-2 text-sm leading-relaxed text-mute">{d.body}</p>
             </div>
           ))
@@ -289,7 +313,7 @@ const trust = [
                 </div>
               </div>
               <div class="lg:w-1/2">
-                <div class="text-sm font-bold uppercase tracking-widest text-teal">
+                <div class="text-sm font-bold uppercase tracking-wide text-accent">
                   {s.n} · {s.name}
                 </div>
                 <h3 class="mt-2 text-2xl font-bold">{s.head}</h3>
@@ -313,31 +337,31 @@ const trust = [
         team will ask for first:
       </p>
       <div class="mt-12 grid gap-6 sm:grid-cols-2">
-        <div class="rounded-xl border border-accent/30 bg-accent/10 p-6">
-          <h3 class="text-lg font-bold text-teal">Where does it run?</h3>
+        <div class="rounded-xl border border-ink/10 bg-page p-6">
+          <h3 class="text-lg font-bold text-ink">Where does it run?</h3>
           <p class="mt-2 leading-relaxed text-mute">
             Inside your trust boundary: your VPC or your own hardware, deployed on your Kubernetes.
             The agents, the model, the browser, the tools, the data, and the evidence all live
             there.
           </p>
         </div>
-        <div class="rounded-xl border border-accent/30 bg-accent/10 p-6">
-          <h3 class="text-lg font-bold text-teal">Which model?</h3>
+        <div class="rounded-xl border border-ink/10 bg-page p-6">
+          <h3 class="text-lg font-bold text-ink">Which model?</h3>
           <p class="mt-2 leading-relaxed text-mute">
             A self-hosted open model, served on your GPUs. No calls to a model vendor, no per-seat
             fees, and no closed-source runtime in the stack.
           </p>
         </div>
-        <div class="rounded-xl border border-accent/30 bg-accent/10 p-6">
-          <h3 class="text-lg font-bold text-teal">What leaves the boundary?</h3>
+        <div class="rounded-xl border border-ink/10 bg-page p-6">
+          <h3 class="text-lg font-bold text-ink">What leaves the boundary?</h3>
           <p class="mt-2 leading-relaxed text-mute">
             Nothing. Screens, documents, credentials, and model traffic stay inside. Egress is off
             by default and only ever opened per use case, by you, with the change on the audit
             chain.
           </p>
         </div>
-        <div class="rounded-xl border border-accent/30 bg-accent/10 p-6">
-          <h3 class="text-lg font-bold text-teal">Who controls access?</h3>
+        <div class="rounded-xl border border-ink/10 bg-page p-6">
+          <h3 class="text-lg font-bold text-ink">Who controls access?</h3>
           <p class="mt-2 leading-relaxed text-mute">
             You do: your identity provider, enforced role-based access, authenticated approvals,
             and a tamper-evident audit chain you can verify and export.
@@ -357,7 +381,7 @@ const trust = [
         and proven at scale on the audit chain. Filmed on {facts.demoApps}, {facts.demoAppsGloss}.
       </p>
       <div class="mt-10 overflow-hidden rounded-xl border border-ink/10 shadow-2xl">
-        <video src="/media/product-video.mp4" controls preload="metadata" poster="/media/og.jpg" class="w-full"
+        <video src="/media/product-video.mp4" controls preload="metadata" poster="/media/stills/create.jpg" class="w-full"
         ></video>
       </div>
     </div>
@@ -369,23 +393,20 @@ const trust = [
       <h2 class="text-center text-3xl font-bold sm:text-4xl">Real work, on real software</h2>
       <p class="mx-auto mt-4 max-w-2xl text-center text-mute">
         Each of these follows the pattern behind most back-office work: take a document, work the
-        system of record, prove the result. Shown here across document, accounting, and claims
-        systems, and the same pattern reaches any software your team works on screen or over an
-        API. Every flow starts
-        supervised and earns its autonomy, and every run is measured: completions, exceptions, and
-        ROI per use case.
+        system of record, prove the result. Every flow starts supervised, earns its autonomy, and
+        is measured: completions, exceptions, and ROI per use case.
       </p>
       <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {
           useCases.map((u) => (
-            <div class="rounded-xl border border-accent/30 bg-accent/10 p-6">
-              <div class="text-xs font-semibold uppercase tracking-wider text-teal">{u.route}</div>
+            <div class="rounded-xl border border-ink/10 bg-page p-6">
+              <div class="text-xs font-semibold uppercase tracking-wide text-accent">{u.route}</div>
               <h3 class="mt-2 text-lg font-bold">{u.name}</h3>
               <p class="mt-2 text-sm leading-relaxed text-mute">{u.body}</p>
             </div>
           ))
         }
-        <div class="flex items-center justify-center rounded-xl border border-dashed border-accent/40 bg-accent/10 p-6 text-center">
+        <div class="flex items-center justify-center rounded-xl border border-dashed border-ink/20 p-6 text-center">
           <p class="text-sm text-mute">
             Your back office runs on an ERP, HR, claims, or policy admin system instead? If a
             person can operate it on screen, or it exposes an API, an agent can be taught to.
@@ -405,8 +426,8 @@ const trust = [
       <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {
           trust.map((t) => (
-            <div class="rounded-xl border border-accent/30 bg-accent/10 p-6">
-              <h3 class="text-lg font-bold text-accent">{t.head}</h3>
+            <div class="rounded-xl border border-ink/10 bg-page p-6">
+              <h3 class="text-lg font-bold text-ink">{t.head}</h3>
               <p class="mt-2 text-sm leading-relaxed text-mute">{t.body}</p>
             </div>
           ))
@@ -424,22 +445,22 @@ const trust = [
         healthcare, financial services, and other regulated back offices. The exchange is simple:
       </p>
       <div class="mt-10 grid gap-6 text-left sm:grid-cols-3">
-        <div class="rounded-xl border border-accent/30 bg-accent/10 p-6">
-          <div class="text-sm font-bold uppercase tracking-widest text-teal">You bring</div>
+        <div class="rounded-xl border border-ink/10 bg-page p-6">
+          <div class="text-sm font-bold uppercase tracking-wide text-accent">You bring</div>
           <p class="mt-2 text-sm leading-relaxed text-mute">
             One high-volume, rules-driven workflow your team runs on screen today, and the software
             it runs on.
           </p>
         </div>
-        <div class="rounded-xl border border-accent/30 bg-accent/10 p-6">
-          <div class="text-sm font-bold uppercase tracking-widest text-teal">We deliver</div>
+        <div class="rounded-xl border border-ink/10 bg-page p-6">
+          <div class="text-sm font-bold uppercase tracking-wide text-accent">We deliver</div>
           <p class="mt-2 text-sm leading-relaxed text-mute">
             Hands-on deployment inside your boundary and your first use cases built with you,
             supervised from day one, measured from the first run.
           </p>
         </div>
-        <div class="rounded-xl border border-accent/30 bg-accent/10 p-6">
-          <div class="text-sm font-bold uppercase tracking-widest text-teal">You get</div>
+        <div class="rounded-xl border border-ink/10 bg-page p-6">
+          <div class="text-sm font-bold uppercase tracking-wide text-accent">You get</div>
           <p class="mt-2 text-sm leading-relaxed text-mute">
             Direct influence on the roadmap and founding-customer terms that stay with you as the
             platform grows.
@@ -448,7 +469,7 @@ const trust = [
       </div>
       <a
         href={`mailto:${facts.contactEmail}?subject=ViewOps%20AI%20design%20partner`}
-        class="mt-10 inline-block rounded-lg bg-accent px-8 py-4 text-lg font-semibold text-white hover:bg-ink"
+        class="mt-10 inline-block rounded-lg bg-accent px-8 py-4 text-lg font-semibold text-white hover:bg-accent-deep"
         >Talk to us: {facts.contactEmail}</a
       >
       <p class="mt-4 text-sm text-mute">
