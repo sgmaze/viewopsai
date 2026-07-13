@@ -14,6 +14,7 @@ export const facts = {
   // TODO(founder): stand up this mailbox (or swap for the address you want public).
   contactEmail: "sales@viewopsai.com",
   videoMinutes: "6-minute",
+  teaserSeconds: "55-second",
   demoApps: "Box, Wave, and a synthetic claims stack (payer API, claims warehouse, MCP service)",
   demoAppsGloss:
     "standing in for the document, accounting, and claims systems your team already uses",

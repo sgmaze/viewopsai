@@ -264,6 +264,12 @@ const trust = [
         aria-label="ViewOps AI teaser: a use case is created, runs supervised on live software, is approved by a human, and a promoted use case runs autonomously"
       ></video>
     </div>
+    <p class="mt-4 text-sm text-mute">
+      {facts.teaserSeconds} preview ·
+      <a href="#video" class="font-medium text-accent hover:underline"
+        >watch the full {facts.videoMinutes} demo</a
+      >
+    </p>
     <p class="mx-auto mt-6 max-w-2xl text-sm text-mute">
       {facts.proofClaims.realFootage}
     </p>
@@ -326,6 +332,22 @@ const trust = [
     </div>
   </section>
 
+  <!-- Full video -->
+  <section id="video" class="border-t border-ink/10 py-20">
+    <div class="mx-auto max-w-4xl px-6 text-center">
+      <h2 class="text-3xl font-bold sm:text-4xl">Watch it run, end to end</h2>
+      <p class="mx-auto mt-4 max-w-2xl text-mute">
+        The {facts.videoMinutes} product video: a use case created by description, governed, run
+        live, approved by a named human, promoted to autonomous, connected to APIs, data, and MCP,
+        and proven at scale on the audit chain. Filmed on {facts.demoApps}, {facts.demoAppsGloss}.
+      </p>
+      <div class="mt-10 overflow-hidden rounded-xl border border-ink/10 shadow-2xl">
+        <video src="/media/product-video.mp4" controls preload="metadata" poster="/media/stills/create.jpg" class="w-full"
+        ></video>
+      </div>
+    </div>
+  </section>
+
   <!-- Sovereignty -->
   <section id="sovereign" class="border-t border-ink/10 py-20">
     <div class="mx-auto max-w-6xl px-6">
@@ -367,22 +389,6 @@ const trust = [
             and a tamper-evident audit chain you can verify and export.
           </p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Full video -->
-  <section id="video" class="border-t border-ink/10 py-20">
-    <div class="mx-auto max-w-4xl px-6 text-center">
-      <h2 class="text-3xl font-bold sm:text-4xl">Watch it run, end to end</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-mute">
-        The {facts.videoMinutes} product video: a use case created by description, governed, run
-        live, approved by a named human, promoted to autonomous, connected to APIs, data, and MCP,
-        and proven at scale on the audit chain. Filmed on {facts.demoApps}, {facts.demoAppsGloss}.
-      </p>
-      <div class="mt-10 overflow-hidden rounded-xl border border-ink/10 shadow-2xl">
-        <video src="/media/product-video.mp4" controls preload="metadata" poster="/media/stills/create.jpg" class="w-full"
-        ></video>
       </div>
     </div>
   </section>
