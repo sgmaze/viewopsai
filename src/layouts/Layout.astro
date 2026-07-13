@@ -12,6 +12,7 @@ const {
   description = `${facts.oneLiner} ${facts.sovereignLine} ${facts.trustLine}`,
 } = Astro.props;
 const og = new URL("/media/og.png", Astro.site);
+const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -22,12 +23,12 @@ const og = new URL("/media/og.png", Astro.site);
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href={Astro.site} />
+    <link rel="canonical" href={canonical} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={og} />
-    <meta property="og:url" content={Astro.site} />
+    <meta property="og:url" content={canonical} />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body class="min-h-screen">
