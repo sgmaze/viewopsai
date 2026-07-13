@@ -159,7 +159,7 @@ const trust = [
 
 <Layout>
   <!-- Nav -->
-  <header class="sticky top-0 z-50 border-b border-white/10 bg-navy/90 backdrop-blur">
+  <header class="sticky top-0 z-50 border-b border-ink/10 bg-page/90 backdrop-blur">
     <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
       <a href="/" class="flex items-center gap-2.5 text-lg font-bold text-accent">
         <svg viewBox="0 0 120 120" class="h-7 w-7" aria-hidden="true">
@@ -176,16 +176,16 @@ const trust = [
         {facts.brand}
       </a>
       <nav class="hidden gap-8 text-sm text-mute sm:flex">
-        <a href="#doors" class="hover:text-white">Capabilities</a>
-        <a href="#how" class="hover:text-white">How it works</a>
-        <a href="#sovereign" class="hover:text-white">Sovereignty</a>
-        <a href="#use-cases" class="hover:text-white">Use cases</a>
-        <a href="#trust" class="hover:text-white">Trust</a>
-        <a href="#partner" class="hover:text-white">Design partners</a>
+        <a href="#doors" class="hover:text-ink">Capabilities</a>
+        <a href="#how" class="hover:text-ink">How it works</a>
+        <a href="#sovereign" class="hover:text-ink">Sovereignty</a>
+        <a href="#use-cases" class="hover:text-ink">Use cases</a>
+        <a href="#trust" class="hover:text-ink">Trust</a>
+        <a href="#partner" class="hover:text-ink">Design partners</a>
       </nav>
       <a
         href="#partner"
-        class="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-navy-deep hover:bg-white"
+        class="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-ink"
         >Become a design partner</a
       >
     </div>
@@ -218,18 +218,18 @@ const trust = [
     <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
       <a
         href="#video"
-        class="rounded-lg bg-accent px-6 py-3 font-semibold text-navy-deep hover:bg-white"
+        class="rounded-lg bg-accent px-6 py-3 font-semibold text-white hover:bg-ink"
         >Watch the {facts.videoMinutes} demo</a
       >
       <a
         href="#how"
-        class="rounded-lg border border-white/20 px-6 py-3 font-semibold text-white hover:border-accent hover:text-accent"
+        class="rounded-lg border border-ink/20 px-6 py-3 font-semibold text-ink hover:border-accent hover:text-accent"
         >See how it works</a
       >
     </div>
 
     <!-- Teaser -->
-    <div class="mx-auto mt-12 max-w-4xl overflow-hidden rounded-xl border border-white/10 shadow-2xl">
+    <div class="mx-auto mt-12 max-w-4xl overflow-hidden rounded-xl border border-ink/10 shadow-2xl">
       <video
         src="/media/teaser.mp4"
         autoplay
@@ -250,7 +250,7 @@ const trust = [
   </section>
 
   <!-- Capabilities: every door -->
-  <section id="doors" class="border-t border-white/10 py-20">
+  <section id="doors" class="border-t border-ink/10 py-20">
     <div class="mx-auto max-w-6xl px-6">
       <h2 class="text-center text-3xl font-bold sm:text-4xl">
         Every door into <span class="text-accent">your systems</span>
@@ -274,7 +274,7 @@ const trust = [
   </section>
 
   <!-- How it works -->
-  <section id="how" class="border-t border-white/10 bg-navy-deep py-20">
+  <section id="how" class="border-t border-ink/10 bg-band py-20">
     <div class="mx-auto max-w-6xl px-6">
       <h2 class="text-center text-3xl font-bold sm:text-4xl">How it works</h2>
       <p class="mx-auto mt-4 max-w-2xl text-center text-mute">
@@ -285,7 +285,7 @@ const trust = [
           steps.map((s, i) => (
             <div class={`flex flex-col items-center gap-8 lg:flex-row ${i % 2 ? "lg:flex-row-reverse" : ""}`}>
               <div class="lg:w-1/2">
-                <div class="overflow-hidden rounded-xl border border-white/10 shadow-xl">
+                <div class="overflow-hidden rounded-xl border border-ink/10 shadow-xl">
                   <img src={s.still} alt={s.alt} loading="lazy" class="w-full" />
                 </div>
               </div>
@@ -304,7 +304,7 @@ const trust = [
   </section>
 
   <!-- Sovereignty -->
-  <section id="sovereign" class="border-t border-white/10 py-20">
+  <section id="sovereign" class="border-t border-ink/10 py-20">
     <div class="mx-auto max-w-6xl px-6">
       <h2 class="text-center text-3xl font-bold sm:text-4xl">
         Your environment. Your model. <span class="text-accent">Your data.</span>
@@ -349,7 +349,7 @@ const trust = [
   </section>
 
   <!-- Full video -->
-  <section id="video" class="border-t border-white/10 py-20">
+  <section id="video" class="border-t border-ink/10 py-20">
     <div class="mx-auto max-w-4xl px-6 text-center">
       <h2 class="text-3xl font-bold sm:text-4xl">Watch it run, end to end</h2>
       <p class="mx-auto mt-4 max-w-2xl text-mute">
@@ -357,7 +357,7 @@ const trust = [
         live, approved by a named human, promoted to autonomous, connected to APIs, data, and MCP,
         and proven at scale on the audit chain. Filmed on {facts.demoApps}, {facts.demoAppsGloss}.
       </p>
-      <div class="mt-10 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
+      <div class="mt-10 overflow-hidden rounded-xl border border-ink/10 shadow-2xl">
         <video src="/media/product-video.mp4" controls preload="metadata" poster="/media/og.jpg" class="w-full"
         ></video>
       </div>
@@ -365,7 +365,7 @@ const trust = [
   </section>
 
   <!-- Use cases -->
-  <section id="use-cases" class="border-t border-white/10 bg-navy-deep py-20">
+  <section id="use-cases" class="border-t border-ink/10 bg-band py-20">
     <div class="mx-auto max-w-6xl px-6">
       <h2 class="text-center text-3xl font-bold sm:text-4xl">Real work, on real software</h2>
       <p class="mx-auto mt-4 max-w-2xl text-center text-mute">
@@ -379,14 +379,14 @@ const trust = [
       <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {
           useCases.map((u) => (
-            <div class="rounded-xl border border-white/10 bg-panel p-6">
+            <div class="rounded-xl border border-ink/10 bg-panel p-6">
               <div class="text-xs font-semibold uppercase tracking-wider text-teal">{u.route}</div>
               <h3 class="mt-2 text-lg font-bold">{u.name}</h3>
               <p class="mt-2 text-sm leading-relaxed text-mute">{u.body}</p>
             </div>
           ))
         }
-        <div class="flex items-center justify-center rounded-xl border border-dashed border-white/20 p-6 text-center">
+        <div class="flex items-center justify-center rounded-xl border border-dashed border-ink/20 p-6 text-center">
           <p class="text-sm text-mute">
             Your back office runs on an ERP, HR, claims, or policy admin system instead? If a
             person can operate it on screen, or it exposes an API, an agent can be taught to.
@@ -397,7 +397,7 @@ const trust = [
   </section>
 
   <!-- Trust -->
-  <section id="trust" class="border-t border-white/10 py-20">
+  <section id="trust" class="border-t border-ink/10 py-20">
     <div class="mx-auto max-w-6xl px-6">
       <h2 class="text-center text-3xl font-bold sm:text-4xl">Built for the operations you cannot get wrong</h2>
       <p class="mx-auto mt-4 max-w-2xl text-center text-mute">
@@ -406,7 +406,7 @@ const trust = [
       <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {
           trust.map((t) => (
-            <div class="rounded-xl border border-white/10 bg-panel p-6">
+            <div class="rounded-xl border border-ink/10 bg-panel p-6">
               <h3 class="text-lg font-bold text-accent">{t.head}</h3>
               <p class="mt-2 text-sm leading-relaxed text-mute">{t.body}</p>
             </div>
@@ -417,7 +417,7 @@ const trust = [
   </section>
 
   <!-- Design partner CTA -->
-  <section id="partner" class="border-t border-white/10 bg-navy-deep py-20">
+  <section id="partner" class="border-t border-ink/10 bg-band py-20">
     <div class="mx-auto max-w-5xl px-6 text-center">
       <h2 class="text-3xl font-bold sm:text-4xl">Become a design partner</h2>
       <p class="mx-auto mt-6 max-w-3xl leading-relaxed text-mute">
@@ -425,21 +425,21 @@ const trust = [
         healthcare, financial services, and other regulated back offices. The exchange is simple:
       </p>
       <div class="mt-10 grid gap-6 text-left sm:grid-cols-3">
-        <div class="rounded-xl border border-white/10 bg-panel p-6">
+        <div class="rounded-xl border border-ink/10 bg-panel p-6">
           <div class="text-sm font-bold uppercase tracking-widest text-teal">You bring</div>
           <p class="mt-2 text-sm leading-relaxed text-mute">
             One high-volume, rules-driven workflow your team runs on screen today, and the software
             it runs on.
           </p>
         </div>
-        <div class="rounded-xl border border-white/10 bg-panel p-6">
+        <div class="rounded-xl border border-ink/10 bg-panel p-6">
           <div class="text-sm font-bold uppercase tracking-widest text-teal">We deliver</div>
           <p class="mt-2 text-sm leading-relaxed text-mute">
             Hands-on deployment inside your boundary and your first use cases built with you,
             supervised from day one, measured from the first run.
           </p>
         </div>
-        <div class="rounded-xl border border-white/10 bg-panel p-6">
+        <div class="rounded-xl border border-ink/10 bg-panel p-6">
           <div class="text-sm font-bold uppercase tracking-widest text-teal">You get</div>
           <p class="mt-2 text-sm leading-relaxed text-mute">
             Direct influence on the roadmap and founding-customer terms that stay with you as the
@@ -449,7 +449,7 @@ const trust = [
       </div>
       <a
         href={`mailto:${facts.contactEmail}?subject=ViewOps%20AI%20design%20partner`}
-        class="mt-10 inline-block rounded-lg bg-accent px-8 py-4 text-lg font-semibold text-navy-deep hover:bg-white"
+        class="mt-10 inline-block rounded-lg bg-accent px-8 py-4 text-lg font-semibold text-white hover:bg-ink"
         >Talk to us: {facts.contactEmail}</a
       >
       <p class="mt-4 text-sm text-mute">
@@ -460,7 +460,7 @@ const trust = [
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-white/10 py-10">
+  <footer class="border-t border-ink/10 py-10">
     <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-sm text-mute sm:flex-row">
       <div>
         <span class="font-bold text-accent">{facts.brand}</span>

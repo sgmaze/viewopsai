@@ -12,7 +12,7 @@ export const facts = {
   audienceLine:
     "Built for regulated back offices: insurance, healthcare, financial services, and any team that cannot ship its data to an AI vendor.",
   // TODO(founder): stand up this mailbox (or swap for the address you want public).
-  contactEmail: "hello@viewopsai.com",
+  contactEmail: "sales@viewopsai.com",
   videoMinutes: "6-minute",
   demoApps: "Box, Wave, and a synthetic claims stack (payer API, claims warehouse, MCP service)",
   demoAppsGloss:
