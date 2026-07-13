@@ -20,7 +20,7 @@ export const facts = {
     "standing in for the document, accounting, and claims systems your team already uses",
   proofClaims: {
     realFootage:
-      "Everything on this page is real: live software, real runs, synthetic data. Nothing is ever sent or paid without a human, unless you promote the use case yourself.",
+      "Everything on this page is real: live software, real runs, synthetic data. Payment and purchase decisions always remain with your people, in every mode.",
   },
   compliance:
     "SOC 2 and HIPAA control sets are built into the platform. The formal attestation program is underway.",
