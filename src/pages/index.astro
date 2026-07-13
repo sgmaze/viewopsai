@@ -28,7 +28,7 @@ const steps = [
     alt: "A live run drafting a vendor bill in Wave from an invoice in Box",
     head: "It works your real software, live.",
     body:
-      "The agent signs in with vaulted credentials it never sees, reads the vendor invoice in Box, and drafts the bill in Wave field by field, matching the total to the penny. No APIs, no connectors: the same screens your team uses today.",
+      "The agent signs in with vaulted credentials it never sees, reads the vendor invoice in Box, and drafts the bill in Wave field by field, matching the total to the penny. It works the same screens your team uses today, and where a system offers an API or a tool, it takes that door under the same governance.",
   },
   {
     n: "4",
@@ -76,14 +76,33 @@ const useCases = [
     body: "Turns a W-9 into a finished vendor record with zero human touches. Promoted after proving itself supervised.",
   },
   {
-    name: "Lead enrichment from a brief",
-    route: "Documents to CRM · autonomous",
-    body: "Reads a prospect brief and creates the enriched CRM lead, end to end.",
+    name: "Claims adjudication against policy",
+    route: "Documents + API · autonomous",
+    body: "Verifies a claim against the payer API and a versioned policy document. Auto-files what qualifies and routes what does not to review.",
   },
   {
-    name: "Order to cash",
-    route: "Documents + CRM + Accounting · supervised",
-    body: "One governed run across three systems, from signed order to draft invoice, with a mandatory human sign-off.",
+    name: "Claims sweep across four doors",
+    route: "Data + API + MCP + Browser · autonomous",
+    body: "One governed run, eighteen governed calls: queries the warehouse, verifies members over the API, flags via MCP, works a legacy screen, and delivers the report.",
+  },
+];
+
+const doors = [
+  {
+    head: "On screen",
+    body: "The interface every system has. If a person can work it on screen, an AI agent can too. No integration project required.",
+  },
+  {
+    head: "APIs",
+    body: "Where a system exposes an API, the agent calls it directly: faster, structured, exact. Every call is fenced to approved endpoints, and writes park for approval just like a click.",
+  },
+  {
+    head: "Data and documents",
+    body: "Agents query your databases with fenced, read-only access, and produce the documents and spreadsheets your workflows need. Everything stays inside your boundary.",
+  },
+  {
+    head: "MCP tools",
+    body: "Agents connect to Model Context Protocol servers, bringing enterprise tools inside your fence. Each MCP tool is allow-listed per use case, and consequential calls park for approval like everything else.",
   },
 ];
 
@@ -106,7 +125,7 @@ const trust = [
   {
     head: "Deterministic guardrails",
     body:
-      "The approval gate, the action allow-list, the domain fence, and the payment hard stop are enforced in code, outside the model. A clever prompt cannot talk its way past them.",
+      "The approval gate, the action allow-list, the domain fence, and the payment hard stop are enforced in code, outside the model. A clever prompt cannot talk its way past them, whether the agent is clicking a screen or calling an API.",
   },
   {
     head: "Compliance-ready",
@@ -140,6 +159,7 @@ const trust = [
       </a>
       <nav class="hidden gap-8 text-sm text-mute sm:flex">
         <a href="#how" class="hover:text-white">How it works</a>
+        <a href="#doors" class="hover:text-white">Capabilities</a>
         <a href="#sovereign" class="hover:text-white">Sovereignty</a>
         <a href="#use-cases" class="hover:text-white">Use cases</a>
         <a href="#trust" class="hover:text-white">Trust</a>
@@ -241,6 +261,58 @@ const trust = [
     </div>
   </section>
 
+  <!-- Capabilities: every door -->
+  <section id="doors" class="border-t border-white/10 py-20">
+    <div class="mx-auto max-w-6xl px-6">
+      <h2 class="text-center text-3xl font-bold sm:text-4xl">
+        Every door into <span class="text-accent">your systems</span>
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-center text-mute">
+        The browser is the universal interface, and it is not the only one. Agents take the best
+        door each system offers, and every door passes through the same guardrails: one allow-list,
+        one approval gate, one audit chain.
+      </p>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          doors.map((d) => (
+            <div class="rounded-xl border border-accent/30 bg-panel p-6">
+              <h3 class="text-lg font-bold text-teal">{d.head}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-mute">{d.body}</p>
+            </div>
+          ))
+        }
+      </div>
+      <div class="mt-10 grid gap-6 lg:grid-cols-2">
+        <figure>
+          <div class="overflow-hidden rounded-xl border border-white/10 shadow-xl">
+            <img
+              src="/media/stills/connect.jpg"
+              alt="A governed run calling the payer API directly: one claim auto-filed, one routed to human review"
+              loading="lazy"
+              class="w-full"
+            />
+          </div>
+          <figcaption class="mt-3 text-center text-sm text-mute">
+            The same use case, through the API door. Same allow-list, same approval gate.
+          </figcaption>
+        </figure>
+        <figure>
+          <div class="overflow-hidden rounded-xl border border-white/10 shadow-xl">
+            <img
+              src="/media/stills/scale.jpg"
+              alt="A single autonomous run making 18 governed calls across database, API, MCP, and browser"
+              loading="lazy"
+              class="w-full"
+            />
+          </div>
+          <figcaption class="mt-3 text-center text-sm text-mute">
+            One run, four doors, eighteen governed calls, every one on the audit chain.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- Sovereignty -->
   <section id="sovereign" class="border-t border-white/10 py-20">
     <div class="mx-auto max-w-6xl px-6">
@@ -256,7 +328,8 @@ const trust = [
           <h3 class="text-lg font-bold text-teal">Where does it run?</h3>
           <p class="mt-2 leading-relaxed text-mute">
             Inside your trust boundary: your VPC or your own hardware, deployed on your Kubernetes.
-            The agents, the model, the browser, the data, and the evidence all live there.
+            The agents, the model, the browser, the tools, the data, and the evidence all live
+            there.
           </p>
         </div>
         <div class="rounded-xl border border-accent/30 bg-panel p-6">
@@ -291,8 +364,8 @@ const trust = [
       <h2 class="text-3xl font-bold sm:text-4xl">Watch it run, end to end</h2>
       <p class="mx-auto mt-4 max-w-2xl text-mute">
         The {facts.videoMinutes} product video: a use case created by description, governed, run
-        live, approved by a named human, promoted to autonomous, and proven on the audit chain.
-        Filmed on {facts.demoApps}, {facts.demoAppsGloss}.
+        live, approved by a named human, promoted to autonomous, connected to APIs, data, and MCP,
+        and proven at scale on the audit chain. Filmed on {facts.demoApps}, {facts.demoAppsGloss}.
       </p>
       <div class="mt-10 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
         <video src="/media/product-video.mp4" controls preload="metadata" poster="/media/og.jpg" class="w-full"
@@ -307,8 +380,9 @@ const trust = [
       <h2 class="text-center text-3xl font-bold sm:text-4xl">Real work, on real software</h2>
       <p class="mx-auto mt-4 max-w-2xl text-center text-mute">
         Each of these follows the pattern behind most back-office work: take a document, work the
-        system of record, prove the result. Shown here across document, accounting, and CRM systems,
-        and the same pattern reaches any software your team works on screen. Every flow starts
+        system of record, prove the result. Shown here across document, accounting, and claims
+        systems, and the same pattern reaches any software your team works on screen or over an
+        API. Every flow starts
         supervised and earns its autonomy, and every run is measured: completions, exceptions, and
         ROI per use case.
       </p>
@@ -325,7 +399,7 @@ const trust = [
         <div class="flex items-center justify-center rounded-xl border border-dashed border-white/20 p-6 text-center">
           <p class="text-sm text-mute">
             Your back office runs on an ERP, HR, claims, or policy admin system instead? If a
-            person can operate it on screen, an agent can be taught to.
+            person can operate it on screen, or it exposes an API, an agent can be taught to.
           </p>
         </div>
       </div>
