@@ -1,0 +1,20 @@
+---
+/* Same shell as the holding page, so links into the old site (/#partner and the
+   other section anchors people already have) land somewhere useful. */
+import HoldingNotice from "../components/HoldingNotice.astro";
+import { facts } from "../data/facts";
+---
+
+<HoldingNotice
+  title={`${facts.brand} · Page not available`}
+  description="This page is not available while ViewOps AI is being rebuilt."
+>
+  <Fragment slot="heading">
+    That page is <span class="text-accent">not here right now</span>.
+  </Fragment>
+
+  <Fragment slot="body">
+    Most of this site is off while the product is revamped. The page you were looking for will be
+    back when the new one ships.
+  </Fragment>
+</HoldingNotice>

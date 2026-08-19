@@ -1,0 +1,71 @@
+---
+/* Shared shell for the pages served while the site is dark: the homepage and the
+   404. Both carry the same mark, status pill, contact CTAs, and footer, so they
+   live here rather than drifting apart in two files. Delete this component when
+   the full site returns. */
+import Layout from "../layouts/Layout.astro";
+import BrandMark from "./BrandMark.astro";
+import { facts } from "../data/facts";
+
+interface Props {
+  title: string;
+  description: string;
+  /* The homepage carries the trust line; the 404 stays terser. */
+  trustLine?: boolean;
+}
+
+const { title, description, trustLine = false } = Astro.props;
+const mailto = `mailto:${facts.contactEmail}?subject=ViewOps%20AI%20design%20partner`;
+---
+
+<Layout title={title} description={description} noindex>
+  <main class="mx-auto flex min-h-[85vh] max-w-3xl flex-col items-center justify-center px-6 py-20 text-center">
+    <a href="/" class="flex items-center gap-3 text-2xl font-bold text-accent">
+      <BrandMark class="h-10 w-10" />
+      {facts.brand}
+    </a>
+
+    <p class="mt-10 inline-flex items-center gap-2 rounded-full border border-ink/10 bg-band px-4 py-1.5 text-sm font-semibold text-mute">
+      <span class="relative flex h-2 w-2">
+        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal opacity-75"></span>
+        <span class="relative inline-flex h-2 w-2 rounded-full bg-teal"></span>
+      </span>
+      Product revamp in progress
+    </p>
+
+    <h1 class="mt-6 text-4xl font-bold leading-tight sm:text-5xl">
+      <slot name="heading" />
+    </h1>
+
+    <p class="mt-6 max-w-xl text-lg text-mute">
+      <slot name="body" />
+    </p>
+
+    {trustLine && <p class="mt-5 text-lg font-semibold text-teal">{facts.trustLine}</p>}
+
+    <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
+      <a
+        href={mailto}
+        class="rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-white hover:bg-accent-deep"
+        >Email {facts.contactEmail}</a
+      >
+      <a
+        href="/news"
+        class="rounded-lg border border-ink/15 px-5 py-3 text-sm font-semibold text-ink hover:bg-band"
+        >Sovereign AI news</a
+      >
+    </div>
+
+    <slot name="note" />
+  </main>
+
+  <footer class="border-t border-ink/10 py-10">
+    <div class="mx-auto flex max-w-3xl flex-col items-center justify-between gap-4 px-6 text-sm text-mute sm:flex-row">
+      <div>
+        <span class="font-bold text-accent">{facts.brand}</span>
+        · governed AI agents, sovereign execution
+      </div>
+      <div>© 2026 {facts.brand} · {facts.domain}</div>
+    </div>
+  </footer>
+</Layout>
