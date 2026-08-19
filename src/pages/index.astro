@@ -1,77 +1,24 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import HoldingNotice from "../components/HoldingNotice.astro";
 import { facts } from "../data/facts";
-
-const mailto = `mailto:${facts.contactEmail}?subject=ViewOps%20AI%20design%20partner`;
 ---
 
-<Layout
+<HoldingNotice
   title={`${facts.brand} · Product revamp in progress`}
   description="ViewOps AI is being rebuilt. AI agents that run back-office work inside your own environment, on a model you host, under guardrails you set."
-  noindex
+  trustLine
 >
-  <main class="mx-auto flex min-h-[85vh] max-w-3xl flex-col items-center justify-center px-6 py-20 text-center">
-    <a href="/" class="flex items-center gap-3 text-2xl font-bold text-accent">
-      <svg viewBox="0 0 120 120" class="h-10 w-10" aria-hidden="true">
-        <rect x="4" y="4" width="112" height="112" rx="26" fill="#5aa9ff"></rect>
-        <polyline
-          points="33,40 60,92 87,40"
-          fill="none"
-          stroke="#ffffff"
-          stroke-width="14"
-          stroke-linecap="round"
-          stroke-linejoin="round"></polyline>
-        <circle cx="60" cy="24" r="8" fill="#ffffff"></circle>
-      </svg>
-      {facts.brand}
-    </a>
+  <Fragment slot="heading">
+    We are rebuilding <span class="text-accent">{facts.brand}</span>.
+  </Fragment>
 
-    <p class="mt-10 inline-flex items-center gap-2 rounded-full border border-ink/10 bg-band px-4 py-1.5 text-sm font-semibold text-mute">
-      <span class="relative flex h-2 w-2">
-        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal opacity-75"></span>
-        <span class="relative inline-flex h-2 w-2 rounded-full bg-teal"></span>
-      </span>
-      Product revamp in progress
-    </p>
+  <Fragment slot="body">
+    This site is off while the product is revamped. What we are building has not changed: AI agents
+    that do back-office work in your real software, inside your own environment, on a model you
+    host, under guardrails you set.
+  </Fragment>
 
-    <h1 class="mt-6 text-4xl font-bold leading-tight sm:text-5xl">
-      We are rebuilding
-      <span class="text-accent">ViewOps AI</span>.
-    </h1>
-
-    <p class="mt-6 max-w-xl text-lg text-mute">
-      This site is off while the product is revamped. What we are building has not changed: AI
-      agents that do back-office work in your real software, inside your own environment, on a model
-      you host, under guardrails you set.
-    </p>
-
-    <p class="mt-5 text-lg font-semibold text-teal">{facts.trustLine}</p>
-
-    <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
-      <a
-        href={mailto}
-        class="rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-white hover:bg-accent-deep"
-        >Email {facts.contactEmail}</a
-      >
-      <a
-        href="/news"
-        class="rounded-lg border border-ink/15 px-5 py-3 text-sm font-semibold text-ink hover:bg-band"
-        >Sovereign AI news</a
-      >
-    </div>
-
-    <p class="mt-6 text-sm text-mute">
-      Design partner conversations are open. We reply to every note.
-    </p>
-  </main>
-
-  <footer class="border-t border-ink/10 py-10">
-    <div class="mx-auto flex max-w-3xl flex-col items-center justify-between gap-4 px-6 text-sm text-mute sm:flex-row">
-      <div>
-        <span class="font-bold text-accent">{facts.brand}</span>
-        · governed AI agents, sovereign execution
-      </div>
-      <div>© 2026 {facts.brand} · {facts.domain}</div>
-    </div>
-  </footer>
-</Layout>
+  <p slot="note" class="mt-6 text-sm text-mute">
+    Design partner conversations are open. We reply to every note.
+  </p>
+</HoldingNotice>

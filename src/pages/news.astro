@@ -1,9 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import BrandMark from "../components/BrandMark.astro";
 import { facts } from "../data/facts";
+import { newsItems } from "../data/news";
 
 const mailto = `mailto:${facts.contactEmail}?subject=ViewOps%20AI%20design%20partner`;
-import { newsItems } from "../data/news";
 
 const items = [...newsItems].sort((a, b) => b.date.localeCompare(a.date));
 
@@ -25,17 +26,7 @@ const description =
   <header class="sticky top-0 z-50 border-b border-ink/10 bg-page/90 backdrop-blur">
     <div class="mx-auto flex max-w-4xl items-center justify-between gap-4 px-6 py-4">
       <a href="/" class="flex shrink-0 items-center gap-2.5 whitespace-nowrap text-lg font-bold text-accent">
-        <svg viewBox="0 0 120 120" class="h-7 w-7" aria-hidden="true">
-          <rect x="4" y="4" width="112" height="112" rx="26" fill="#5aa9ff"></rect>
-          <polyline
-            points="33,40 60,92 87,40"
-            fill="none"
-            stroke="#ffffff"
-            stroke-width="14"
-            stroke-linecap="round"
-            stroke-linejoin="round"></polyline>
-          <circle cx="60" cy="24" r="8" fill="#ffffff"></circle>
-        </svg>
+        <BrandMark />
         {facts.brand}
       </a>
       <div class="flex items-center gap-4 text-sm sm:gap-6">
