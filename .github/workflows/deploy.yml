@@ -3,18 +3,22 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
+# Checkout is all the build needs. The Pages write scopes sit on the deploy job
+# instead, so pull request runs never hold them.
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
-# Allow one concurrent deployment, but never cancel an in-flight production
-# publish; a cancelled Pages deployment can leave the environment in a bad state.
+# Production publishes share one group and are never cancelled: a cancelled
+# Pages deployment can leave the environment in a bad state. Pull request builds
+# get a group per branch and do cancel, because a superseded build proves nothing
+# and there is no environment for them to corrupt.
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.ref) || 'pages' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   build:
@@ -24,9 +28,16 @@ jobs:
       - name: Build with Astro
         uses: withastro/action@v3
 
+  # Pull requests stop after build: the build is the check. Publishing to the
+  # live site stays on pushes to main and manual dispatch.
   deploy:
     needs: build
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url || steps.deployment-retry.outputs.page_url }}
