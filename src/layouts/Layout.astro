@@ -5,13 +5,18 @@ import { facts } from "../data/facts";
 interface Props {
   title?: string;
   description?: string;
+  /* Set on pages that should not be indexed (the revamp holding page, 404).
+     Applied per page rather than via robots.txt so /news stays indexable. */
+  noindex?: boolean;
 }
 
 const {
   title = `${facts.brand} · ${facts.tagline}`,
   description = `${facts.oneLiner} ${facts.sovereignLine} ${facts.trustLine}`,
+  noindex = false,
 } = Astro.props;
-const og = new URL("/media/og.png", Astro.site);
+/* Neutral revamp card. Point back at og.png when the full site returns. */
+const og = new URL("/media/og-revamp.png", Astro.site);
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -22,6 +27,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonical} />
     <meta property="og:type" content="website" />
